@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7FB2FE96-19A3-4FEC-BB3B-B6211D8927F4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{D8C1CC45-303E-4BD6-8B65-18FDAC3732FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrainsProblem</RootNamespace>
-    <AssemblyName>TrainsProblem</AssemblyName>
+    <RootNamespace>TrainsProblem.Domain</RootNamespace>
+    <AssemblyName>TrainsProblem.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,14 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="StructureMap, Version=4.2.0.402, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.4.2.0.402\lib\net40\StructureMap.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="StructureMap.Net4, Version=4.2.0.402, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.4.2.0.402\lib\net40\StructureMap.Net4.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,26 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\ConsoleLogger.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tasks\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TrainsProblem.DataService\TrainsProblem.DataService.csproj">
-      <Project>{92d735cd-089b-409b-b18f-07ad995b3768}</Project>
-      <Name>TrainsProblem.DataService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TrainsProblem.DOmain\TrainsProblem.Domain.csproj">
-      <Project>{D8C1CC45-303E-4BD6-8B65-18FDAC3732FF}</Project>
-      <Name>TrainsProblem.Domain</Name>
-    </ProjectReference>
+    <Compile Include="Result.cs" />
+    <Compile Include="Route.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

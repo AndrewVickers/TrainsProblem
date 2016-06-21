@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7FB2FE96-19A3-4FEC-BB3B-B6211D8927F4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{92D735CD-089B-409B-B18F-07AD995B3768}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrainsProblem</RootNamespace>
-    <AssemblyName>TrainsProblem</AssemblyName>
+    <RootNamespace>TrainsProblem.DataService</RootNamespace>
+    <AssemblyName>TrainsProblem.DataService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -51,26 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\ConsoleLogger.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="InMemoryTrainData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tasks\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TrainsProblem.DataService\TrainsProblem.DataService.csproj">
-      <Project>{92d735cd-089b-409b-b18f-07ad995b3768}</Project>
-      <Name>TrainsProblem.DataService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TrainsProblem.DOmain\TrainsProblem.Domain.csproj">
-      <Project>{D8C1CC45-303E-4BD6-8B65-18FDAC3732FF}</Project>
+      <Project>{d8c1cc45-303e-4bd6-8b65-18fdac3732ff}</Project>
       <Name>TrainsProblem.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
