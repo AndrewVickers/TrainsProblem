@@ -29,7 +29,7 @@ namespace TrainsProblem
         public class Application
         {
             private readonly IConsoleLogger _consoleLogger;
-            private IInMemoryTrainData _inMemoryTrainData;
+            private readonly IInMemoryTrainData _inMemoryTrainData;
 
             public Application( IConsoleLogger consoleLogger, IInMemoryTrainData inMemoryTrainData)
             {
@@ -41,33 +41,27 @@ namespace TrainsProblem
             {
                 _consoleLogger.Info("Question 1 - The distance of the route A-B-C.");
                 var getAnswerResult=GetDistanceByRoute("ABC");
-                if (getAnswerResult.IsFailure)
-                    _consoleLogger.Info(getAnswerResult.Error);
-                _consoleLogger.Info(getAnswerResult.LogMessage);
+                _consoleLogger.Info(getAnswerResult.IsSuccess ? getAnswerResult.LogMessage : getAnswerResult.Error);
 
                 _consoleLogger.Info("Question 2 - The distance of the route A-D.");
                  getAnswerResult = GetDistanceByRoute("AD");
-                if (getAnswerResult.IsFailure)
-                    _consoleLogger.Info(getAnswerResult.Error);
-                _consoleLogger.Info(getAnswerResult.LogMessage);
+                _consoleLogger.Info(getAnswerResult.IsSuccess ? getAnswerResult.LogMessage : getAnswerResult.Error);
 
                 _consoleLogger.Info("Question 3 - The distance of the route A-D-C.");
                 getAnswerResult = GetDistanceByRoute("ADC");
-                if (getAnswerResult.IsFailure)
-                    _consoleLogger.Info(getAnswerResult.Error);
-                _consoleLogger.Info(getAnswerResult.LogMessage);
+                _consoleLogger.Info(getAnswerResult.IsSuccess ? getAnswerResult.LogMessage : getAnswerResult.Error);
 
                 _consoleLogger.Info("Question 4 -The distance of the route A-E-B-C-D.");
                 getAnswerResult = GetDistanceByRoute("AEBCD");
-                if (getAnswerResult.IsFailure)
-                    _consoleLogger.Info(getAnswerResult.Error);
-                _consoleLogger.Info(getAnswerResult.LogMessage);
+                _consoleLogger.Info(getAnswerResult.IsSuccess? getAnswerResult.LogMessage: getAnswerResult.Error);
 
                 _consoleLogger.Info("Question 5 - The distance of the route A-E-D.");
                 getAnswerResult = GetDistanceByRoute("AED");
-                if (getAnswerResult.IsFailure)
-                    _consoleLogger.Info(getAnswerResult.Error);
-                _consoleLogger.Info(getAnswerResult.LogMessage);
+                _consoleLogger.Info(getAnswerResult.IsSuccess ? getAnswerResult.LogMessage : getAnswerResult.Error);
+
+                _consoleLogger.Info("Question 5 - The number of trips starting at C and ending at C with a maximum of 3 stops.");
+                getAnswerResult =  _inMemoryTrainData.FindPath("C","C");
+                _consoleLogger.Info(getAnswerResult.IsSuccess ? getAnswerResult.LogMessage : getAnswerResult.Error);
             }
 
             private Result GetDistanceByRoute(string route)
@@ -84,6 +78,7 @@ namespace TrainsProblem
 
                 return Result.Ok($"Output #1: {distance}");
             }
+            
 
             private List<KeyValuePair<string, int>> GetOriginAndDestination(string route)
             {
